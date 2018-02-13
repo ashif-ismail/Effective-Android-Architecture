@@ -10,8 +10,10 @@ import dagger.Component;
 
 @Singleton
 @Component(modules = {
-        AppModule.class
+        AppModule.class,
+        ActivityBindingModule.class
 })
 public interface AppComponent {
 
+    void inject(EffectiveApp effectiveApp);
 }
