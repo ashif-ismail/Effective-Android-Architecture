@@ -6,14 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.UUID;
 
+import javax.inject.Inject;
+
 import ea2.ashif.me.di.Injector;
+import ea2.ashif.me.di.ScreenInjector;
 
 /**
  * Created by ashif on 13/02/18.
  */
 
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
 
+    @Inject
+    ScreenInjector screenInjector;
     private static String KEY_INSTANCE_ID = "instance_id";
     private String instanceId;
 
@@ -45,5 +50,9 @@ public abstract class BaseActivity extends AppCompatActivity{
         if (isFinishing()) {
             Injector.clearComponent(this);
         }
+    }
+
+    public ScreenInjector getScreenInjector() {
+        return screenInjector;
     }
 }

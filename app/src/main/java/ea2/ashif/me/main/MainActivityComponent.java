@@ -8,7 +8,9 @@ import ea2.ashif.me.di.ActivityScope;
  * Created by ashif on 13/02/18.
  */
 @ActivityScope
-@Subcomponent
+@Subcomponent(modules = {
+        MainScreenBindingModule.class
+})
 public interface MainActivityComponent extends AndroidInjector<MainActivity> {
 
     @Subcomponent.Builder
